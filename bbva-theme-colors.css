@@ -1,0 +1,212 @@
+/* ==========================================================================
+   BBVA THEME COLORS
+   ========================================================================== */
+
+:root,
+html {
+  /*
+     HEX values
+     ========================================================================== */
+
+  /*
+   * Primary
+   * -------------------------------- */
+
+  /* Blue */
+  --bbva-core-blue: #004481;
+  --bbva-core-dark-blue: #043263;
+  --bbva-core-light-blue: #1464A5;
+  --bbva-medium-blue: #1973B8;
+  --bbva-medium-light-blue: #49A5E6;
+  --bbva-sky-blue: #5BBEFF;
+  --bbva-sky-light-blue: #D4EDFC;
+  --bbva-navy: #072146;
+
+  /* White */
+  --bbva-white: #fff;
+
+  /* Aqua */
+  --bbva-aqua: #2DCCCD;
+  --bbva-aqua-darkest: #006C6C; /* only hover states */
+  --bbva-aqua-dark: #028484;
+  --bbva-aqua-medium: #02A5A5;
+  --bbva-aqua-light: #5AC4C4;
+  --bbva-aqua-white: #EAF9FA;
+
+
+  /*
+   * Secondary
+   * -------------------------------- */
+
+  /* Grey */
+  --bbva-600: #121212;
+  --bbva-500: #666666;
+  --bbva-400: #BDBDBD;
+  --bbva-300: #D3D3D3;
+  --bbva-200: #E9E9E9;
+  --bbva-100: #F4F4F4;
+
+
+  /*
+   * Tertiary
+   * -------------------------------- */
+
+  /* Red */
+  --bbva-red: #DA3851;
+  --bbva-red-dark: #B92A45;
+  --bbva-red-medium: #C0475E;
+  --bbva-red-light: #E77D8E;
+  --bbva-red-white: #F4C3CA;
+
+  /* Yellow */
+  --bbva-yellow: #F8CD51;
+  --bbva-yellow-dark: #9C6C01;
+  --bbva-yellow-medium: #C49735;
+  --bbva-yellow-light: #FADE8E;
+  --bbva-yellow-white: #FEF5DC;
+
+  /* Coral */
+  --bbva-coral: #F35E61;
+  --bbva-coral-dark: #CB353A;
+  --bbva-coral-medium: #D44B50;
+  --bbva-coral-light: #F59799;
+  --bbva-coral-white: #FCDFDF;
+
+  /* Pink */
+  --bbva-pink: #F78BE8;
+  --bbva-pink-dark: #AD53A1;
+  --bbva-pink-medium: #C569B9;
+  --bbva-pink-light: #FAB3F0;
+  --bbva-pink-white: #FDDCF8;
+
+  /* Orange */
+  --bbva-orange: #F7893B;
+  --bbva-orange-dark: #C65302;
+  --bbva-orange-medium: #D8732C;
+  --bbva-orange-light: #FAB27F;
+  --bbva-orange-white: #FDE7D8;
+
+  /* Sand */
+  --bbva-sand: #D8BE75;
+  --bbva-sand-dark: #8E7022;
+  --bbva-sand-medium: #B79E5E;
+  --bbva-sand-light: #E6D5A5;
+  --bbva-sand-white: #F3EBD5;
+
+  /* Green */
+  --bbva-green: #48AE64;
+  --bbva-green-dark: #277A3E;
+  --bbva-green-medium: #388D4F;
+  --bbva-green-light: #88CA9A;
+  --bbva-green-white: #D9EFE0;
+
+  /* Purple */
+  --bbva-purple: #8F7AE5;
+  --bbva-purple-dark: #6754B8;
+  --bbva-purple-medium: #7C6AC7;
+  --bbva-purple-light: #B6A8EE;
+  --bbva-purple-white: #DDD7F7;
+
+
+  /*
+     hsla values
+     ========================================================================== */
+
+  /*
+   * Primary
+   * -------------------------------- */
+
+  /* Blue */
+  --bbva-core-blue:         hsla(208, 100%, 25%, 1);
+  --bbva-core-dark-blue:    hsla(211, 92%, 20%, 1);
+  --bbva-core-light-blue:   hsla(207, 78%, 36%, 1);
+  --bbva-medium-blue:       hsla(206, 76%, 41%, 1);
+  --bbva-medium-light-blue: hsla(205, 76%, 59%, 1);
+  --bbva-sky-blue:          hsla(204, 100%, 68%, 1);
+  --bbva-sky-light-blue:    hsla(203, 87%, 91%, 1);
+  --bbva-navy:              hsla(215, 82%, 15%, 1);
+
+  /* White */
+  --bbva-white:             hsla(0, 0%, 100%, 1);
+
+  /* Aqua */
+  --bbva-aqua:              hsla(180, 64%, 49%, 1);
+  --bbva-aqua-darkest:      hsla(180, 100%, 21%, 1);  /* only hover states */
+  --bbva-aqua-dark:         hsla(180, 97%, 26%, 1);
+  --bbva-aqua-medium:       hsla(180, 98%, 33%, 1);
+  --bbva-aqua-light:        hsla(180, 47%, 56%, 1);
+  --bbva-aqua-white:        hsla(184, 62%, 95%, 1);
+
+
+  /*
+   * Secondary
+   * -------------------------------- */
+
+  /* Grey */
+  --bbva-600:               hsla(0, 0%, 7%, 1);
+  --bbva-500:               hsla(0, 0%, 40%, 1);
+  --bbva-400:               hsla(0, 0%, 74%, 1);
+  --bbva-300:               hsla(0, 0%, 83%, 1);
+  --bbva-200:               hsla(0, 0%, 91%, 1);
+  --bbva-100:               hsla(0, 0%, 96%, 1);
+
+
+  /*
+   * Tertiary
+   * -------------------------------- */
+
+  /* Red */
+  --bbva-red:               hsla(351, 69%, 54%, 1);
+  --bbva-red-dark:          hsla(349, 63%, 45%, 1);
+  --bbva-red-medium:        hsla(349, 49%, 52%, 1);
+  --bbva-red-light:         hsla(350, 69%, 70%, 1);
+  --bbva-red-white:         hsla(351, 69%, 86%, 1);
+
+  /* Yellow */
+  --bbva-yellow:            hsla(45, 92%, 65%, 1);
+  --bbva-yellow-dark:       hsla(41, 99%, 31%, 1);
+  --bbva-yellow-medium:     hsla(41, 57%, 49%, 1);
+  --bbva-yellow-light:      hsla(44, 92%, 77%, 1);
+  --bbva-yellow-white:      hsla(44, 94%, 93%, 1);
+
+  /* Coral */
+  --bbva-coral:             hsla(359, 86%, 66%, 1);
+  --bbva-coral-dark:        hsla(358, 59%, 50%, 1);
+  --bbva-coral-medium:      hsla(358, 61%, 56%, 1);
+  --bbva-coral-light:       hsla(359, 82%, 78%, 1);
+  --bbva-coral-white:       hsla(0, 83%, 93%, 1);
+
+  /* Pink */
+  --bbva-pink:              hsla(308, 87%, 76%, 1);
+  --bbva-pink-dark:         hsla(308, 35%, 50%, 1);
+  --bbva-pink-medium:       hsla(308, 44%, 59%, 1);
+  --bbva-pink-light:        hsla(308, 88%, 84%, 1);
+  --bbva-pink-white:        hsla(309, 89%, 93%, 1);
+
+  /* Orange */
+  --bbva-orange:            hsla(25, 92%, 60%, 1);
+  --bbva-orange-dark:       hsla(25, 98%, 39%, 1);
+  --bbva-orange-medium:     hsla(25, 69%, 51%, 1);
+  --bbva-orange-light:      hsla(25, 92%, 74%, 1);
+  --bbva-orange-white:      hsla(24, 90%, 92%, 1);
+
+  /* Sand */
+  --bbva-sand:              hsla(44, 56%, 65%, 1);
+  --bbva-sand-dark:         hsla(43, 61%, 35%, 1);
+  --bbva-sand-medium:       hsla(43, 38%, 54%, 1);
+  --bbva-sand-light:        hsla(44, 57%, 77%, 1);
+  --bbva-sand-white:        hsla(44, 56%, 89%, 1);
+
+  /* Green */
+  --bbva-green:             hsla(136, 41%, 48%, 1);
+  --bbva-green-dark:        hsla(137, 52%, 32%, 1);
+  --bbva-green-medium:      hsla(136, 43%, 39%, 1);
+  --bbva-green-light:       hsla(136, 38%, 66%, 1);
+  --bbva-green-white:       hsla(139, 41%, 89%, 1);
+
+  /* Purple */
+  --bbva-purple:            hsla(252, 67%, 69%, 1);
+  --bbva-purple-dark:       hsla(251, 41%, 53%, 1);
+  --bbva-purple-medium:     hsla(252, 45%, 60%, 1);
+  --bbva-purple-light:      hsla(252, 67%, 80%, 1);
+  --bbva-purple-white:      hsla(251, 67%, 91%, 1); }

@@ -1,0 +1,276 @@
+// ==========================================================================
+// Functions
+// ==========================================================================
+
+//
+// Disable scss default functions
+// ==========================================================================
+
+
+// @function hsl($h, $s, $l) {
+//   @return unquote('hsl(#{$h}, #{$s}, #{$l})');
+// }
+//
+// @function hsla($h, $s, $l, $a) {
+//   @return unquote('hsla(#{$h}, #{$s}, #{$l}, #{$a})');
+// }
+
+
+//
+// hex-to-hlsa conversor
+// ==========================================================================
+
+@function hex-to-hlsa($color, $alpha: false){
+  $_hue: round(hue($color)/1deg);
+  $_saturation: round(saturation($color));
+  $_lightness : round( lightness($color) );
+
+  $_alpha : false;
+  @if $alpha == false {
+      $_alpha : if(1 == alpha($color), 1, alpha($color));
+  } @else {
+      $_alpha : $alpha;
+  }
+
+  @return unquote("hsla(#{$_hue}, #{$_saturation}, #{$_lightness}, #{$_alpha})");
+}
+
+//
+// Function test
+//
+
+// .test__hex-to-hlsa {
+//   $pi: hsl(120, 100, 50);
+//   $pa: hex-to-hlsa(lime);
+//   $po: hex-to-hlsa(#00ff00);
+//   $pe: hex-to-hlsa(rgb(0,255,0));
+//   $pu: hex-to-hlsa(hsl(120, 100, 50));
+//
+//   $pi_a: hsla(120, 100, 50, .3);
+//   $pa_a: hex-to-hlsa(lime, .3);
+//   $po_a: hex-to-hlsa(#00ff00, .3);
+//   $pe_a: hex-to-hlsa(rgba(0,255,0, .3));
+//   $pe_b: hex-to-hlsa(rgb(0,255,0), .3);
+//   $pe_c: hex-to-hlsa(rgba(0,255,0, .3), .6);
+//   $pu_a: hex-to-hlsa(hsla(120, 100, 50, .3));
+//   $pu_b: hex-to-hlsa(hsl(120, 100%, 50%), .3);
+//   $pu_c: hex-to-hlsa(hsla(120, 100, 50, .3), .6);
+// }
+
+
+
+// ==========================================================================
+// Colors theme
+// ==========================================================================
+
+
+:root,
+html {
+  //
+  // Primary
+  // ==========================================================================
+
+  // Blue
+  $bbva-core-blue: #004481;
+  $bbva-core-dark-blue: #043263;
+  $bbva-core-light-blue: #1464A5;
+
+  $bbva-medium-blue: #1973B8;
+  $bbva-medium-light-blue: #49A5E6;
+
+  $bbva-sky-blue: #5BBEFF;
+  $bbva-sky-light-blue: #D4EDFC;
+
+  $bbva-navy: #072146;
+
+  // White
+  $bbva-white: #fff;
+
+  // Aqua
+  $bbva-aqua: #2DCCCD;
+  $bbva-aqua-darkest: #006C6C; /* only hover states */
+  $bbva-aqua-dark: #028484;
+  $bbva-aqua-medium: #02A5A5;
+  $bbva-aqua-light: #5AC4C4;
+  $bbva-aqua-white: #EAF9FA;
+
+  //
+  // Secondary
+  // ==========================================================================
+
+  // Grey
+  $bbva-600: #121212;
+  $bbva-500: #666666;
+  $bbva-400: #BDBDBD;
+  $bbva-300: #D3D3D3;
+  $bbva-200: #E9E9E9;
+  $bbva-100: #F4F4F4;
+
+
+  //
+  // Tertiary
+  // ==========================================================================
+
+  // Red
+  $bbva-red: #DA3851;
+  $bbva-red-dark: #B92A45;
+  $bbva-red-medium: #C0475E;
+  $bbva-red-light: #E77D8E;
+  $bbva-red-white: #F4C3CA;
+
+  // Yellow
+  $bbva-yellow: #F8CD51;
+  $bbva-yellow-dark: #9C6C01;
+  $bbva-yellow-medium: #C49735;
+  $bbva-yellow-light: #FADE8E;
+  $bbva-yellow-white: #FEF5DC;
+
+  // Coral
+  $bbva-coral: #F35E61;
+  $bbva-coral-dark: #CB353A;
+  $bbva-coral-medium: #D44B50;
+  $bbva-coral-light: #F59799;
+  $bbva-coral-white: #FCDFDF;
+
+  // Pink
+  $bbva-pink: #F78BE8;
+  $bbva-pink-dark: #AD53A1;
+  $bbva-pink-medium: #C569B9;
+  $bbva-pink-light: #FAB3F0;
+  $bbva-pink-white: #FDDCF8;
+
+  // Orange
+  $bbva-orange: #F7893B;
+  $bbva-orange-dark: #C65302;
+  $bbva-orange-medium: #D8732C;
+  $bbva-orange-light: #FAB27F;
+  $bbva-orange-white: #FDE7D8;
+
+  // Sand
+  $bbva-sand: #D8BE75;
+  $bbva-sand-dark: #8E7022;
+  $bbva-sand-medium: #B79E5E;
+  $bbva-sand-light: #E6D5A5;
+  $bbva-sand-white: #F3EBD5;
+
+  // Green
+  $bbva-green: #48AE64;
+  $bbva-green-dark: #277A3E;
+  $bbva-green-medium: #388D4F;
+  $bbva-green-light: #88CA9A;
+  $bbva-green-white: #D9EFE0;
+
+  // Purple
+  $bbva-purple: #8F7AE5;
+  $bbva-purple-dark: #6754B8;
+  $bbva-purple-medium: #7C6AC7;
+  $bbva-purple-light: #B6A8EE;
+  $bbva-purple-white: #DDD7F7;
+
+  // ==========================================================================
+  // hsla values
+  // ==========================================================================
+
+ //
+ // Primary
+ // ==========================================================================
+
+ // Blue
+ $bbva-core-blue: hex-to-hlsa(#004481);
+ $bbva-core-dark-blue: hex-to-hlsa(#043263);
+ $bbva-core-light-blue: hex-to-hlsa(#1464A5);
+
+ $bbva-medium-blue: hex-to-hlsa(#1973B8);
+ $bbva-medium-light-blue: hex-to-hlsa(#49A5E6);
+
+ $bbva-sky-blue: hex-to-hlsa(#5BBEFF);
+ $bbva-sky-light-blue: hex-to-hlsa(#D4EDFC);
+
+ $bbva-navy: hex-to-hlsa(#072146);
+
+ // White
+ $bbva-white: hex-to-hlsa(#fff;
+
+) // Aqua
+ $bbva-aqua: hex-to-hlsa(#2DCCCD);
+ $bbva-aqua-darkest: hex-to-hlsa(#006C6C); /* only hover states */
+ $bbva-aqua-dark: hex-to-hlsa(#028484);
+ $bbva-aqua-medium: hex-to-hlsa(#02A5A5);
+ $bbva-aqua-light: hex-to-hlsa(#5AC4C4);
+ $bbva-aqua-white: hex-to-hlsa(#EAF9FA);
+
+ //
+ // Secondary
+ // ==========================================================================
+
+ // Grey
+ $bbva-600: hex-to-hlsa(#121212);
+ $bbva-500: hex-to-hlsa(#666666);
+ $bbva-400: hex-to-hlsa(#BDBDBD);
+ $bbva-300: hex-to-hlsa(#D3D3D3);
+ $bbva-200: hex-to-hlsa(#E9E9E9);
+ $bbva-100: hex-to-hlsa(#F4F4F4);
+
+
+ //
+ // Tertiary
+ // ==========================================================================
+
+ // Red
+ $bbva-red: hex-to-hlsa(#DA3851);
+ $bbva-red-dark: hex-to-hlsa(#B92A45);
+ $bbva-red-medium: hex-to-hlsa(#C0475E);
+ $bbva-red-light: hex-to-hlsa(#E77D8E);
+ $bbva-red-white: hex-to-hlsa(#F4C3CA);
+
+ // Yellow
+ $bbva-yellow: hex-to-hlsa(#F8CD51);
+ $bbva-yellow-dark: hex-to-hlsa(#9C6C01);
+ $bbva-yellow-medium: hex-to-hlsa(#C49735);
+ $bbva-yellow-light: hex-to-hlsa(#FADE8E);
+ $bbva-yellow-white: hex-to-hlsa(#FEF5DC);
+
+ // Coral
+ $bbva-coral: hex-to-hlsa(#F35E61);
+ $bbva-coral-dark: hex-to-hlsa(#CB353A);
+ $bbva-coral-medium: hex-to-hlsa(#D44B50);
+ $bbva-coral-light: hex-to-hlsa(#F59799);
+ $bbva-coral-white: hex-to-hlsa(#FCDFDF);
+
+ // Pink
+ $bbva-pink: hex-to-hlsa(#F78BE8);
+ $bbva-pink-dark: hex-to-hlsa(#AD53A1);
+ $bbva-pink-medium: hex-to-hlsa(#C569B9);
+ $bbva-pink-light: hex-to-hlsa(#FAB3F0);
+ $bbva-pink-white: hex-to-hlsa(#FDDCF8);
+
+ // Orange
+ $bbva-orange: hex-to-hlsa(#F7893B);
+ $bbva-orange-dark: hex-to-hlsa(#C65302);
+ $bbva-orange-medium: hex-to-hlsa(#D8732C);
+ $bbva-orange-light: hex-to-hlsa(#FAB27F);
+ $bbva-orange-white: hex-to-hlsa(#FDE7D8);
+
+ // Sand
+ $bbva-sand: hex-to-hlsa(#D8BE75);
+ $bbva-sand-dark: hex-to-hlsa(#8E7022);
+ $bbva-sand-medium: hex-to-hlsa(#B79E5E);
+ $bbva-sand-light: hex-to-hlsa(#E6D5A5);
+ $bbva-sand-white: hex-to-hlsa(#F3EBD5);
+
+ // Green
+ $bbva-green: hex-to-hlsa(#48AE64);
+ $bbva-green-dark: hex-to-hlsa(#277A3E);
+ $bbva-green-medium: hex-to-hlsa(#388D4F);
+ $bbva-green-light: hex-to-hlsa(#88CA9A);
+ $bbva-green-white: hex-to-hlsa(#D9EFE0);
+
+ // Purple
+ $bbva-purple: hex-to-hlsa(#8F7AE5);
+ $bbva-purple-dark: hex-to-hlsa(#6754B8);
+ $bbva-purple-medium: hex-to-hlsa(#7C6AC7);
+ $bbva-purple-light: hex-to-hlsa(#B6A8EE);
+ $bbva-purple-white: hex-to-hlsa(#DDD7F7);
+
+
+}
