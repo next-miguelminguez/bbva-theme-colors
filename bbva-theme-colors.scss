@@ -1,26 +1,25 @@
-// ==========================================================================
-// Functions
-// ==========================================================================
+/**********************************************************************
+ ***  COLOR CONVERSOR
+ ***
+ ***  color: color-to-hlsa(lime);
+ ***  >>
+ ***  color: hsla(120, 100%, 50%, 1);
+ ***
+ **********************************************************************/
 
-//
-// Disable scss default functions
-// ==========================================================================
+ //
+ // Disable scss default functions for hsl
+ // ==========================================================================
+ //
+ // @function hsl($h, $s, $l) {
+ //   @return unquote('hsl(#{$h}, #{$s}, #{$l})');
+ // }
+ //
+ // @function hsla($h, $s, $l, $a) {
+ //   @return unquote('hsla(#{$h}, #{$s}, #{$l}, #{$a})');
+ // }
 
-
-// @function hsl($h, $s, $l) {
-//   @return unquote('hsl(#{$h}, #{$s}, #{$l})');
-// }
-//
-// @function hsla($h, $s, $l, $a) {
-//   @return unquote('hsla(#{$h}, #{$s}, #{$l}, #{$a})');
-// }
-
-
-//
-// hex-to-hlsa conversor
-// ==========================================================================
-
-@function hex-to-hlsa($color, $alpha: false){
+@function color-to-hlsa($color, $alpha: false){
   $_hue: round(hue($color)/1deg);
   $_saturation: round(saturation($color));
   $_lightness : round( lightness($color) );
@@ -36,27 +35,41 @@
 }
 
 //
-// Function test
+// [@TODO] - Unit test
 //
-
-// .test__hex-to-hlsa {
-//   $pi: hsl(120, 100, 50);
-//   $pa: hex-to-hlsa(lime);
-//   $po: hex-to-hlsa(#00ff00);
-//   $pe: hex-to-hlsa(rgb(0,255,0));
-//   $pu: hex-to-hlsa(hsl(120, 100, 50));
-//
-//   $pi_a: hsla(120, 100, 50, .3);
-//   $pa_a: hex-to-hlsa(lime, .3);
-//   $po_a: hex-to-hlsa(#00ff00, .3);
-//   $pe_a: hex-to-hlsa(rgba(0,255,0, .3));
-//   $pe_b: hex-to-hlsa(rgb(0,255,0), .3);
-//   $pe_c: hex-to-hlsa(rgba(0,255,0, .3), .6);
-//   $pu_a: hex-to-hlsa(hsla(120, 100, 50, .3));
-//   $pu_b: hex-to-hlsa(hsl(120, 100%, 50%), .3);
-//   $pu_c: hex-to-hlsa(hsla(120, 100, 50, .3), .6);
+// .test__color-to-hlsa {
+//     color: var(--lime,       hsl(120, 100, 50));                               /* --lime */
+//     color: var(--lime__name, color-to-hlsa(lime));                             /* --lime__name */
+//     color: var(--lime__hex,  color-to-hlsa(#00ff00));                          /* --lime__hex */
+//     color: var(--lime__rgb,  color-to-hlsa(rgb(0,255,0)));                     /* --lime__rgb */
+//     color: var(--lime__rgba, color-to-hlsa(rgba(0,255,0, .3)));                /* --lime__rgba */
+//     color: var(--lime__hsl,  color-to-hlsa(hsl(120, 100, 50)));                /* --lime__hsl */
+//     color: var(--lime__hsla, color-to-hlsa(hsla(120, 100, 50, .3)));           /* --lime__hsla */
+//     color: var(--lime--opa,       hsla(120, 100, 50, .3));                     /* --lime--opa */
+//     color: var(--lime__name--opa, color-to-hlsa(lime, .3));                    /* --lime__name--opa */
+//     color: var(--lime__hex--opa,  color-to-hlsa(#00ff00, .3));                 /* --lime__hex--opa */
+//     color: var(--lime__rgb--opa,  color-to-hlsa(rgb(0,255,0), .3));            /* --lime__rgb--opa */
+//     color: var(--lime__rgba--opa, color-to-hlsa(rgba(0,255,0, .3), .6));       /* --lime__rgba--opa */
+//     color: var(--lime__hsl--opa,  color-to-hlsa(hsl(120, 100%, 50%), .3));     /* --lime__hsl--opa */
+//     color: var(--lime__hsla--opa, color-to-hlsa(hsla(120, 100, 50, .3), .6));  /* --lime__hsla--opa */
 // }
-
+//
+// .test__color-to-hlsa {
+//   color: var(--lime, lime);                                   /* --lime */
+//   color: var(--lime__name, hsla(120, 100%, 50%, 1));          /* --lime__name */
+//   color: var(--lime__hex, hsla(120, 100%, 50%, 1));           /* --lime__hex */
+//   color: var(--lime__rgb, hsla(120, 100%, 50%, 1));           /* --lime__rgb */
+//   color: var(--lime__rgba, hsla(120, 100%, 50%, 0.3));        /* --lime__rgba */
+//   color: var(--lime__hsl, hsla(120, 100%, 50%, 1));           /* --lime__hsl */
+//   color: var(--lime__hsla, hsla(120, 100%, 50%, 0.3));        /* --lime__hsla */
+//   color: var(--lime--opa, rgba(0, 255, 0, 0.3));              /* --lime--opa */
+//   color: var(--lime__name--opa, hsla(120, 100%, 50%, 0.3));   /* --lime__name--opa */
+//   color: var(--lime__hex--opa, hsla(120, 100%, 50%, 0.3));    /* --lime__hex--opa */
+//   color: var(--lime__rgb--opa, hsla(120, 100%, 50%, 0.3));    /* --lime__rgb--opa */
+//   color: var(--lime__rgba--opa, hsla(120, 100%, 50%, 0.6));   /* --lime__rgba--opa */
+//   color: var(--lime__hsl--opa, hsla(120, 100%, 50%, 0.3));    /* --lime__hsl--opa */
+//   color: var(--lime__hsla--opa, hsla(120, 100%, 50%, 0.6));   /* --lime__hsla--opa */
+// }
 
 
 // ==========================================================================
@@ -176,40 +189,40 @@ html {
  // ==========================================================================
 
  // Blue
- $bbva-core-blue: hex-to-hlsa(#004481);
- $bbva-core-dark-blue: hex-to-hlsa(#043263);
- $bbva-core-light-blue: hex-to-hlsa(#1464A5);
+ $bbva-core-blue: color-to-hlsa(#004481);
+ $bbva-core-dark-blue: color-to-hlsa(#043263);
+ $bbva-core-light-blue: color-to-hlsa(#1464A5);
 
- $bbva-medium-blue: hex-to-hlsa(#1973B8);
- $bbva-medium-light-blue: hex-to-hlsa(#49A5E6);
+ $bbva-medium-blue: color-to-hlsa(#1973B8);
+ $bbva-medium-light-blue: color-to-hlsa(#49A5E6);
 
- $bbva-sky-blue: hex-to-hlsa(#5BBEFF);
- $bbva-sky-light-blue: hex-to-hlsa(#D4EDFC);
+ $bbva-sky-blue: color-to-hlsa(#5BBEFF);
+ $bbva-sky-light-blue: color-to-hlsa(#D4EDFC);
 
- $bbva-navy: hex-to-hlsa(#072146);
+ $bbva-navy: color-to-hlsa(#072146);
 
  // White
- $bbva-white: hex-to-hlsa(#fff;
+ $bbva-white: color-to-hlsa(#fff;
 
 ) // Aqua
- $bbva-aqua: hex-to-hlsa(#2DCCCD);
- $bbva-aqua-darkest: hex-to-hlsa(#006C6C); /* only hover states */
- $bbva-aqua-dark: hex-to-hlsa(#028484);
- $bbva-aqua-medium: hex-to-hlsa(#02A5A5);
- $bbva-aqua-light: hex-to-hlsa(#5AC4C4);
- $bbva-aqua-white: hex-to-hlsa(#EAF9FA);
+ $bbva-aqua: color-to-hlsa(#2DCCCD);
+ $bbva-aqua-darkest: color-to-hlsa(#006C6C); /* only hover states */
+ $bbva-aqua-dark: color-to-hlsa(#028484);
+ $bbva-aqua-medium: color-to-hlsa(#02A5A5);
+ $bbva-aqua-light: color-to-hlsa(#5AC4C4);
+ $bbva-aqua-white: color-to-hlsa(#EAF9FA);
 
  //
  // Secondary
  // ==========================================================================
 
  // Grey
- $bbva-600: hex-to-hlsa(#121212);
- $bbva-500: hex-to-hlsa(#666666);
- $bbva-400: hex-to-hlsa(#BDBDBD);
- $bbva-300: hex-to-hlsa(#D3D3D3);
- $bbva-200: hex-to-hlsa(#E9E9E9);
- $bbva-100: hex-to-hlsa(#F4F4F4);
+ $bbva-600: color-to-hlsa(#121212);
+ $bbva-500: color-to-hlsa(#666666);
+ $bbva-400: color-to-hlsa(#BDBDBD);
+ $bbva-300: color-to-hlsa(#D3D3D3);
+ $bbva-200: color-to-hlsa(#E9E9E9);
+ $bbva-100: color-to-hlsa(#F4F4F4);
 
 
  //
@@ -217,60 +230,60 @@ html {
  // ==========================================================================
 
  // Red
- $bbva-red: hex-to-hlsa(#DA3851);
- $bbva-red-dark: hex-to-hlsa(#B92A45);
- $bbva-red-medium: hex-to-hlsa(#C0475E);
- $bbva-red-light: hex-to-hlsa(#E77D8E);
- $bbva-red-white: hex-to-hlsa(#F4C3CA);
+ $bbva-red: color-to-hlsa(#DA3851);
+ $bbva-red-dark: color-to-hlsa(#B92A45);
+ $bbva-red-medium: color-to-hlsa(#C0475E);
+ $bbva-red-light: color-to-hlsa(#E77D8E);
+ $bbva-red-white: color-to-hlsa(#F4C3CA);
 
  // Yellow
- $bbva-yellow: hex-to-hlsa(#F8CD51);
- $bbva-yellow-dark: hex-to-hlsa(#9C6C01);
- $bbva-yellow-medium: hex-to-hlsa(#C49735);
- $bbva-yellow-light: hex-to-hlsa(#FADE8E);
- $bbva-yellow-white: hex-to-hlsa(#FEF5DC);
+ $bbva-yellow: color-to-hlsa(#F8CD51);
+ $bbva-yellow-dark: color-to-hlsa(#9C6C01);
+ $bbva-yellow-medium: color-to-hlsa(#C49735);
+ $bbva-yellow-light: color-to-hlsa(#FADE8E);
+ $bbva-yellow-white: color-to-hlsa(#FEF5DC);
 
  // Coral
- $bbva-coral: hex-to-hlsa(#F35E61);
- $bbva-coral-dark: hex-to-hlsa(#CB353A);
- $bbva-coral-medium: hex-to-hlsa(#D44B50);
- $bbva-coral-light: hex-to-hlsa(#F59799);
- $bbva-coral-white: hex-to-hlsa(#FCDFDF);
+ $bbva-coral: color-to-hlsa(#F35E61);
+ $bbva-coral-dark: color-to-hlsa(#CB353A);
+ $bbva-coral-medium: color-to-hlsa(#D44B50);
+ $bbva-coral-light: color-to-hlsa(#F59799);
+ $bbva-coral-white: color-to-hlsa(#FCDFDF);
 
  // Pink
- $bbva-pink: hex-to-hlsa(#F78BE8);
- $bbva-pink-dark: hex-to-hlsa(#AD53A1);
- $bbva-pink-medium: hex-to-hlsa(#C569B9);
- $bbva-pink-light: hex-to-hlsa(#FAB3F0);
- $bbva-pink-white: hex-to-hlsa(#FDDCF8);
+ $bbva-pink: color-to-hlsa(#F78BE8);
+ $bbva-pink-dark: color-to-hlsa(#AD53A1);
+ $bbva-pink-medium: color-to-hlsa(#C569B9);
+ $bbva-pink-light: color-to-hlsa(#FAB3F0);
+ $bbva-pink-white: color-to-hlsa(#FDDCF8);
 
  // Orange
- $bbva-orange: hex-to-hlsa(#F7893B);
- $bbva-orange-dark: hex-to-hlsa(#C65302);
- $bbva-orange-medium: hex-to-hlsa(#D8732C);
- $bbva-orange-light: hex-to-hlsa(#FAB27F);
- $bbva-orange-white: hex-to-hlsa(#FDE7D8);
+ $bbva-orange: color-to-hlsa(#F7893B);
+ $bbva-orange-dark: color-to-hlsa(#C65302);
+ $bbva-orange-medium: color-to-hlsa(#D8732C);
+ $bbva-orange-light: color-to-hlsa(#FAB27F);
+ $bbva-orange-white: color-to-hlsa(#FDE7D8);
 
  // Sand
- $bbva-sand: hex-to-hlsa(#D8BE75);
- $bbva-sand-dark: hex-to-hlsa(#8E7022);
- $bbva-sand-medium: hex-to-hlsa(#B79E5E);
- $bbva-sand-light: hex-to-hlsa(#E6D5A5);
- $bbva-sand-white: hex-to-hlsa(#F3EBD5);
+ $bbva-sand: color-to-hlsa(#D8BE75);
+ $bbva-sand-dark: color-to-hlsa(#8E7022);
+ $bbva-sand-medium: color-to-hlsa(#B79E5E);
+ $bbva-sand-light: color-to-hlsa(#E6D5A5);
+ $bbva-sand-white: color-to-hlsa(#F3EBD5);
 
  // Green
- $bbva-green: hex-to-hlsa(#48AE64);
- $bbva-green-dark: hex-to-hlsa(#277A3E);
- $bbva-green-medium: hex-to-hlsa(#388D4F);
- $bbva-green-light: hex-to-hlsa(#88CA9A);
- $bbva-green-white: hex-to-hlsa(#D9EFE0);
+ $bbva-green: color-to-hlsa(#48AE64);
+ $bbva-green-dark: color-to-hlsa(#277A3E);
+ $bbva-green-medium: color-to-hlsa(#388D4F);
+ $bbva-green-light: color-to-hlsa(#88CA9A);
+ $bbva-green-white: color-to-hlsa(#D9EFE0);
 
  // Purple
- $bbva-purple: hex-to-hlsa(#8F7AE5);
- $bbva-purple-dark: hex-to-hlsa(#6754B8);
- $bbva-purple-medium: hex-to-hlsa(#7C6AC7);
- $bbva-purple-light: hex-to-hlsa(#B6A8EE);
- $bbva-purple-white: hex-to-hlsa(#DDD7F7);
+ $bbva-purple: color-to-hlsa(#8F7AE5);
+ $bbva-purple-dark: color-to-hlsa(#6754B8);
+ $bbva-purple-medium: color-to-hlsa(#7C6AC7);
+ $bbva-purple-light: color-to-hlsa(#B6A8EE);
+ $bbva-purple-white: color-to-hlsa(#DDD7F7);
 
 
 }
